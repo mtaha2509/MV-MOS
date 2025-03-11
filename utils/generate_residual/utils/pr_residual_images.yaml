@@ -1,0 +1,52 @@
+# Developed by: jxLiang and cxm
+
+# Inputs
+# the folder of raw LiDAR scans
+scan_folder: "/data-ssd/data5/cxm/ljx/Apollo_Dataset" # "/data1/MotionSeg3d_Dataset/data_odometry_velodyne/dataset/"
+# Outputs
+residual_image_folder: "/data-ssd/data5/cxm/ljx/Apollo_Dataset/res_image"
+rv_visualization_folder:  "/data-ssd/data5/cxm/ljx/Apollo_Dataset/res_image"
+
+# number of frames for training, -1 uses all frames
+num_frames: -1
+
+# for polar 
+polar:
+  # General parameters
+  num_prev_n: 4
+  num_last_n: 4
+
+  occlusion_block: True
+
+  # image parameters
+  polar_image:
+    height: 360
+    width: 480
+    max_range: 50.15
+    min_range: 1.85
+    max_z: 2.0
+    min_z: -4.0
+
+
+# for rv
+rv:
+  # General parameters
+
+  # plot images
+  debug: False
+  # normalize/scale the difference with corresponding range value
+  normalize: True
+  # use the last n frame to calculate the difference image
+  num_last_n: 8
+
+  visualize: False
+
+  # range image parameters
+  range_image:
+    height: 64
+    width: 2048
+    fov_up: 3.0
+    fov_down: -25.0
+    max_range: 50.15
+    min_range: 1.85
+
